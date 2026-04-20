@@ -24,13 +24,13 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  name             : "Sydney Greenspun"
   pronouns         : # example: "she/her"  
   bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  location         : "Los Angeles, CA"
+  employer         : "University of Arizona"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "grimsby8610@gmail.com" 
 
   # Academic websites
   academia         : # URL
