@@ -1,11 +1,31 @@
 ---
 permalink: /
-title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "About Me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
+## About me
+
+Ever since I was young, I loved languages. The uniqueness of each one and the stories they told inspired me. My goal in life was to bridge the gap of communication. In college, I studied the basic linguistics courses, but halfway through my journey, I took an elective class called Language and Computers which sparked my already growing interest in computer science. Generative AI was booming and my awe of how a machine could talk naturally encouraged me to start taking classes in the computer science department. By the time I graduated undergraduate, I had several programming classes under my belt and a B.A in Linguistics.
+
+My natural path lead me to continue at the University of Arizona's Human Language Technology program.
+
+## HLT and NLP Studies
+
+My master's adventure showed me all the many facets of technology. Classes like Computational Linguistics taught me the fundamentals of grammar and how computers process language and Statistical NLP introduced me to concepts like **text analysis, information retrieval**, and machine learning models for NLP purposes. Other classes like Applied NLP and Neural Networks gave me an indepth understanding of the most state of the art technologies used in tasks like **machine translation** and **text generation**. Along the way I took data classes as well including Fundamentals of Datascience and Data Mining and Discovery where I learned to **analyze data** various ways and the **machine learning models** that help make data usable in the real world. My favorite topic to study was machine translation.
+
+## Internships and Work Experience
+
+I've done countless internships in various feilds all with the purpose of using technology to help innovate communication. Some of my most meaningful work included building a custom Optical Character Recognition model for an Indigenous tribe, researching and presenting on technologies to help the blind and the deaf experience cinema, adapting different machine translations models in various settings, along with building my own from scratch.
+
+
+
+
+
+
+
 
 This is the front page of a website that is powered by the [Academic Pages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the repository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. Incidentally, these same features make it a great template for anyone that needs to show off a professional template!
 

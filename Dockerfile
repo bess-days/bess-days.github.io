@@ -1,6 +1,5 @@
 # Base image: Ruby with necessary dependencies for Jekyll
-FROM ruby:3.2
-
+FROM --platform=linux/arm64 ruby:3.2
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \

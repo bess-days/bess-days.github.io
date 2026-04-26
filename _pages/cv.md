@@ -11,35 +11,36 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* M.S Human Language Technology, 2026
+
+* B.A Linguistics, 2024
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Localization Intern
+  * Deluxe Media Entertainment
+  * Duties includes: Analyzing and presenting machine translation data, project management, using data programs like Tableau and Microsoft Excel to thoughtfully report data
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* Natural Language Processing Intern
+  * Coeur d'Alene Online Language Resource center
+  * Duties included: leading a team of five undergrads, custom training various Optical Character Recognition models for Indigenous languages, working with Github
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Machine Translation Apprentice
+  * LetzChat
+  * Duties included: building my own portfolio website using the company's patented machine translation software along with developing my own 
+
+* Disability Technology Intern
+  * Digital Cinema Distribution Coalition
+  * Duties included: Research reports and presentation to prospective investors about modern technology being used in cinema to assist those with hearing and visual impairments 
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Python Programming Language
+  * Packages such as nltk, pandas, matplotlib, tesseract, scikit-learn
+  * Building Python pipelines for Neural Network and Machine Learning models using Tranformers, Tensorflow, Pytorch
+* Natural Language Processing
+  * Coursework in concepts like text analysis, machine translation, and classification
+* 
 
 Publications
 ======
