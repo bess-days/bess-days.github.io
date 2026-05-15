@@ -19,38 +19,29 @@ Work experience
 ======
 
 
-### Localization Intern
+## Localization Intern:  June - August 2024
 
 
-__Deluxe Media Entertainment__
+[_Deluxe Media Entertainment_](https://www.bydeluxe.com/localization) 
   * Analyzed and presented machine translation data to support localization workflows and decision-making
   * Assisted with project management and cross-team coordination
   * Used data visualization and reporting tools including Tableau and Microsoft Excel to deliver actionable insights
 
-### Natural Language Processing Intern
-
-
-__Coeur d'Alene Online Language Resource Center__
-
-
-
+## Natural Language Processing Intern: April 2023 - May 2026
+[_Coeur d'Alene Online Language Resource Center_](https://thecolrc.org/)
 * Led a team of five undergraduate researchers on NLP and language technology projects
-
 * Trained and evaluated custom Optical Character Recognition (OCR) models for Indigenous languages
-
 * Collaborated using GitHub for version control and project management
 
-### Machine Translation Apprentice
-
-
-  __LetzChat__
+### Machine Translation Apprentice: May - August 2025
+[_LetzChat_](letzchat.com)
   
   * Developed a personal portfolio website using the company’s patented machine translation technology
   
   * Worked on machine translation and multilingual content integration projects
 
-### Disability Technology Intern
-  __Digital Cinema Distribution Coalition__
+### Disability Technology Intern: July - August 2025
+[_Digital Cinema Distribution Coalition_](https://dcdcdistribution.com/)
   * Conducted research on accessibility technologies used in cinema for individuals with hearing and visual impairments
 
   * Prepared reports and presentations for prospective investors and stakeholders
