@@ -17,31 +17,54 @@ Education
 
 Work experience
 ======
-* Localization Intern
-  * Deluxe Media Entertainment
-  * Duties includes: Analyzing and presenting machine translation data, project management, using data programs like Tableau and Microsoft Excel to thoughtfully report data
 
-* Natural Language Processing Intern
-  * Coeur d'Alene Online Language Resource center
-  * Duties included: leading a team of five undergrads, custom training various Optical Character Recognition models for Indigenous languages, working with Github
 
-* Machine Translation Apprentice
-  * LetzChat
-  * Duties included: building my own portfolio website using the company's patented machine translation software along with developing my own 
+### Localization Intern
 
-* Disability Technology Intern
-  * Digital Cinema Distribution Coalition
-  * Duties included: Research reports and presentation to prospective investors about modern technology being used in cinema to assist those with hearing and visual impairments 
+
+__Deluxe Media Entertainment__
+  * Analyzed and presented machine translation data to support localization workflows and decision-making
+  * Assisted with project management and cross-team coordination
+  * Used data visualization and reporting tools including Tableau and Microsoft Excel to deliver actionable insights
+
+### Natural Language Processing Intern
+
+
+__Coeur d'Alene Online Language Resource Center__
+
+
+
+* Led a team of five undergraduate researchers on NLP and language technology projects
+
+* Trained and evaluated custom Optical Character Recognition (OCR) models for Indigenous languages
+
+* Collaborated using GitHub for version control and project management
+
+### Machine Translation Apprentice
+
+
+  __LetzChat__
+  
+  * Developed a personal portfolio website using the company’s patented machine translation technology
+  
+  * Worked on machine translation and multilingual content integration projects
+
+### Disability Technology Intern
+  __Digital Cinema Distribution Coalition__
+  * Conducted research on accessibility technologies used in cinema for individuals with hearing and visual impairments
+
+  * Prepared reports and presentations for prospective investors and stakeholders
   
 Skills
 ======
-* Python Programming Language
-  * Packages such as nltk, pandas, matplotlib, tesseract, scikit-learn
-  * Building Python pipelines for Neural Network and Machine Learning models using Tranformers, Tensorflow, Pytorch
-* Natural Language Processing
-  * Coursework in concepts like text analysis, machine translation, and classification
-* Web Programming
-  * Building interactive websites in JavaScript, HTML, and CSS
+### Programming & Machine Learning
+  * Python programming with libraries including NLTK, pandas, matplotlib, Tesseract, and scikit-learn
+  * Building machine learning and neural network pipelines using Transformers, TensorFlow, and PyTorch
+### Natural Language Processing
+  * Academic and project experience in text analysis, machine translation, and text classification
+  * Experience working with OCR systems and multilingual language technologies
+### Web Programming
+  * Building interactive websites using JavaScript, HTML, and CSS
 
 Awards
 ======
