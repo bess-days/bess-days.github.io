@@ -79,11 +79,6 @@ Talks
   <ul>{% for post in site.teaching reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-Projects
-
-===
-
-* [Personal Website](sgreenspun.com)
 
 NLP Projects
 * Linguistic Analysis and Machine Learning of mental health texts

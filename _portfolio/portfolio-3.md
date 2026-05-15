@@ -1,3 +1,8 @@
+---
+title: "Mental Health NLP Analysis"
+excerpt: "Transformer-based Text Classification <br/><img src='/images/mh.jpg'>"
+collection: portfolio
+---
 # Mental Health Natural Language Processing  
 Github Repo: https://github.com/bess-days/mental-health-analysis
 
@@ -144,15 +149,13 @@ The highest macro F1-score achieved was 0.8213, within the range of 0.80 to 0.90
 
 This result is consistent with the macro F1-score calculated from the classification report following predictions.
 
-### Table 2.2 Classification Report for Mental RoBERTa
-
-When we look more closely at the confusion matrix, we see incorrect labels, which support the specific results for each class.
-
-### Figure 2.3 Confusion Matrix for Mental RoBERTa
+<img src="/images/confusion.png">
+### Figure 2.2 Confusion Matrix for Mental RoBERTa
 
 The confusion matrix supported several initial hypotheses. Depression and Suicidal tweets were the most frequently confused categories, while Stress was occasionally mislabeled as Anxiety. Personality Disorder, being a minority class, also produced lower F1-scores and proved more difficult to evaluate accurately.
 
-### Figure 2.4 ROC curves for Mental RoBERTa
+<img src="/images/ROC.png">
+### Figure 2.3 ROC curves for Mental RoBERTa
 
 The ROC curves indicate that all results are relatively good, with the curves for Anxiety, Bipolar, Personality Disorder, and Stress close to 1 (AUC of .97-.99). This suggests that the model generally performs well at differentiating between the classes. However, Suicidal and Depression both have an AUC of .91, which is expected because those two conditions overlap.
 
@@ -172,6 +175,7 @@ MentalRoBERTa slightly outperformed DistilBERT across most evaluation metrics. T
 * Stress classification
 
 Although both models used class-balanced weights, DistilBERT required more domain-specific information to make strong predictions for minority conditions.
+
 | Model         | Macro F1 | Weighted F1 | Accuracy |
 | ------------- | -------- | ----------- | -------- |
 | DistilBERT    | 0.80     | 0.79        | 0.78     |
@@ -189,8 +193,5 @@ The findings support the hypothesis that a domain-specific pre-trained transform
 | Personality Disorder | .77 | .69 | .73 | .82 | .71 | .76 |
 | Stress | .81 | .82 | .82 | .86 | .86 | .86 |
 | Suicidal | .71 | .79 | .75 | .70 | .82 | .76 |
-| Accuracy | .78 |  |  | .79 |  |  |
-| Macro F1 | .80 |  |  | .82 |  |  |
-| Weighted F1 | .79 |  |  | .79 |  |  |
 
 Table 2.6 Comparison of DistilBERT and MentalRoBERTa - the cells marked in green are the highest scores between the two models
