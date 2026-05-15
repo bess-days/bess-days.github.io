@@ -62,8 +62,8 @@ Skills
 
 Awards
 ======
-* 1st Place in a Text Classification competition
-* Top 5 in a Neural Networks competition
+* 1st Place in a Text Classification competition [Code Repository](https://github.com/bess-days/authorship-class-competition)
+* Top 5 in a Neural Networks competition [Code Repository](https://github.com/bess-days/neural-network-class-competion.git)
 
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
@@ -79,7 +79,15 @@ Talks
   <ul>{% for post in site.teaching reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
+Projects
+
+===
+
+* [Personal Website](sgreenspun.com)
+
+NLP Projects
+* Linguistic Analysis and Machine Learning of mental health texts
+* [Authorship Class Competition](https://github.com/bess-days/authorship-class-competition) - used transformers to predict whether two texts were by the same author
 Service and leadership
 ======
 * Heads a team of dozens of members from all over the world on an online gaming community with hundreds of players, teaching them skills like JSON, Git, and creative writing to create fun quests for our game.

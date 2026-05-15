@@ -30,7 +30,7 @@ collection: portfolio
   </tr>
   <tr>
     <th><b>Code Repository URL</b></th>
-    <td>https://github.com/uazhlt-ms-program/ling-582-fall-2025-class-competition-code-bess-days</td>
+    <td>https://github.com/bess-days/authorship-class-competition</td>
   </tr>
 </tbody>
 </table>
