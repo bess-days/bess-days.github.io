@@ -27,11 +27,26 @@ As mentioned, I lead a team. The team's primarily work was in more recent typed 
 
 The documents I did for my side project were stories typed on a special typewriter by Gladys Reichard in the Reichard Orthography. This orthography is notably different then what is considered typical Latin characters.
 
+
 As you'll notice, there is a lot of noise from photo copying and ink clarity issues.
 
 <img src='/images/real_01.png'>
 
+
 Transcription: tᴇtcɩni'tkups tcäsx̥ä'tᴇms uᵘpɔ'tsᴇsᴇ ɫa'x̥ʷṕᴇm ɫuẃa
+
+Some ground-truths are even slanted and have other noise like:
+<img src='/images/real_03.png'>
+
+Transcription: tcilɩdju'sᴇnts kuḿ tćaḿ äya'ʀ guĺɩnt'a'q́ʷsus. tätc
+
+
+Note, there were plenty of hand written notes or symbols in the documents, however, the model can't train on two different scripts, ie the typed text and handwritten notes (and Tesseract is not the best source either for handwritten script). It also couldn't include markings, like handwritten underlines, carrots, space indicators from corrections done post typing. Examples of lines not included in training or testing:
+
+<img src='/images/handwritten.png'>
+
+<img src='/images/slash.png'>
+
 
 However, some characters were incredibly rare, and while I tried to capture as many as I could equally, the resulting data had a Zipf Score (something that measures diversity of words in a vocabulary with everything >1 leaning towards imbalanced) of 1.2. However, that isn't _too_ bad of a score. 
 
@@ -58,8 +73,6 @@ Due to be a one-woman team, I hadn't the time to take a significant amount of gr
 
 
 ## Models
-
-I used two different models for OCR
 
 ### 🏺 Tesseract
 
@@ -116,6 +129,10 @@ The most important things to look at when evaluating a model is how well it does
 Let's compare the three models: Tesseract's base Latin model (my model's start model), w/o synthetic data, w/ synthetic data. 
 
 <img src='/images/test_07.png'>
+
+As you can see this is an excellent example of a challenging ground truth - there are black spots and the text is crooked. 
+
+
 Top is ground truth, bottom is what the specified model predicted.
 
 Latin Start Model (51% CER):
@@ -126,5 +143,61 @@ W/o synthetic data (4% CER)
 
 W/ Synthetic Data (2% CER)
 <img src='/images/07_with.png'>
+
+
+Patterns I found in performance between the two was that the model with synthetic data did better reading sentence ends and word boundaries. Missing periods occured at least 4 times in my tests with the model w/o synthetic data. There are also cons with having a start model compared to training from stratch - the start model introduces the unichar set of that script (in this case Latin) so letters appear that shouldn't appear in the document's orthography (though this only occurred a couple times with testing.)
+
+This is an example that has both foreign characters and missing period.
+
+<img src="/images/test_16.png">
+
+W/o Synthetic data (8% CER):
+<img src="/images/16_wo.png">
+
+
+W/ Synthetic data (2% CER)
+<img src="/images/16_w.png">
+
+
+To be honest, I'm not sure exactly why letters were inserted there - usually when letters are inserted it is because of noise in the photograph. Neither could I find very clear trends of one model did better than the other, in fact, in around a third of the test data, the model w/o synthetic data did better than the ones w/ synthetic data, even though synthetic data did better overall. 
+
+My original theory had been because the synthetic data are trained on more unique words (3+ clusters) fabricated by the Markhov model, the model w/ synthetic data would do better on longer words, and it did in some cases, but performed the same (but not less) than w/o synthetic data. Generally both performed well on very unique characters like superscript u and a, along with voiceless markers (the dot underneath the letters.)
+
+
+I did find that the most common errors are:
+
+* Missing accent (a vs ä was most common)
+
+* Confusion between the letters (m, n, h were most common)
+
+* Missing apostrophe or mistaking for ᶥ
+
+Over all though, it did incredibly good on all the unique characters that the Latin model was most likely not heavily trained on, as seen by the Latin base predictions compared to fine tuned. 
+
+
+
+# Teamwork
+
+ I lead a team of undergraduates through a similar process for different documents in CdA. 
+
+All of them had different skills and background, giving me ample opportunity both teach them new skills and advance existing. At the time of starting the project with them, I had yet to fully learn the OCR pipeline, and together there was trial and error, but I put my best foot foward with preparing a repository for us to work on and did plenty of research to best teach the team.
+
+Fortunately, this project took less work than my personal project with the Reidarch documents.  The orthography and quality of the sources was less of a problem with the pages being clean, and the main character used that was outside the typical 'Latin' set was l with a tilde. The Latin model on its own did well on our documents, but generally messed up the l with a tilde, so after trial and error me and the team created our own Tesseract model. In the end the results were near perfection with little character error rate, however, what posed a large problem we have yet to tackle is the unique layouts of these source documents as they are language workbooks. 
+
+I hope this amazing team can work together and carry on my work after I graduate, I assured them I will remain reachable if they need any help.
+
+
+# Can you do this for your Indigenous language?
+
+Yes! Though there are a few variables. Firstly, is your language's orthography similar to a script Tesseract is pre-trained on? If the answer is yes, you're on the right track. Not to say a completely new script isn't possible to train a custom model on, it will just take a lot of data and establishing other files like a manually created unicharset. 
+
+Depending on the similarity to the start model, you might need more iterations
+
+
+
+
+
+
+
 
 
