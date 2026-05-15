@@ -1,6 +1,6 @@
 ---
 title: "Authorship Classification Competition"
-excerpt: "Transformer-based Text Classification <br/><img src='/images/authorship_cropped.png'>"
+excerpt: "Transformer-based Text Classification <br/><img src='/images/authorship_cropped.jpg'>"
 collection: portfolio
 ---
 
