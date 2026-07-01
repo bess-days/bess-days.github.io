@@ -29,7 +29,7 @@ author:
   bio              : "Computational Linguist based in Los Angeles"
   location         : "Los Angeles, CA"
   employer         : "University of Arizona"
-  uri              : "sgreenspun.com"
+  uri              : "https://sgreenspun.com"
   email            : "grimsby8610@gmail.com" 
 
   # Academic websites
@@ -66,7 +66,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : "sydney-bess-greenspun"
+  linkedin         : "Sydney Bess Greenspun" # Username
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username

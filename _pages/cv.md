@@ -9,13 +9,18 @@ redirect_from:
 
 {% include base_path %}
 
-Education
+Skills
 ======
-## University of Arizona 2024-2026
-* M.S Human Language Technology: A program in computational linguistics and Natural Language Processing where I learned about A.I and advanced techniques for machine learning and text analysis.
+### Programming & Machine Learning
+  * Python programming with libraries including NLTK, pandas, matplotlib, Tesseract, and scikit-learn
+  * Building machine learning and neural network pipelines using Transformers, TensorFlow, and PyTorch
 
-## University of Arizona 2020-2024
-* B.A Linguistics with a minor in Foreign Languages: I focused on language technology and computer science, while taking American Sign Language, French, and Russian.
+### Natural Language Processing
+  * Academic and project experience in text analysis, machine translation, and text classification
+  * Experience working with OCR systems and multilingual language technologies
+
+### Web Programming
+  * Building interactive websites using JavaScript, HTML, and CSS
 
 
 Work experience
@@ -37,7 +42,7 @@ Work experience
 
 ## Machine Translation Apprentice
 #### May - August 2025
-[_LetzChat_](letzchat.com)
+[_LetzChat_](https://www.letzchat.com/?langtarget=en)
   * Developed a personal portfolio website using the company’s patented machine translation technology
   * Worked on machine translation and multilingual content integration projects
 
@@ -45,20 +50,8 @@ Work experience
 #### July - August 2025
 [_Digital Cinema Distribution Coalition_](https://dcdcdistribution.com/)
   * Conducted research on accessibility technologies used in cinema for individuals with hearing and visual impairments
-  * Prepared reports and presentations for prospective investors and stakeholders
+  * Communicated decision-making information to prospective investors through written reports and verbal/visual presentations
   
-Skills
-======
-### Programming & Machine Learning
-  * Python programming with libraries including NLTK, pandas, matplotlib, Tesseract, and scikit-learn
-  * Building machine learning and neural network pipelines using Transformers, TensorFlow, and PyTorch
-
-### Natural Language Processing
-  * Academic and project experience in text analysis, machine translation, and text classification
-  * Experience working with OCR systems and multilingual language technologies
-
-### Web Programming
-  * Building interactive websites using JavaScript, HTML, and CSS
 
 Awards
 ======
@@ -68,7 +61,17 @@ Awards
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
+
+
+NLP Projects
+
+=====
+* [Linguistic Analysis and Machine Learning of mental health texts](https://bess-days.github.io/portfolio/portfolio-3/) (Transformers, SpaCy and text processing)
+* [Optical Character Recognition Project](https://bess-days.github.io/portfolio/portfolio-1/) (Neural Networks, Data gemeration)
+* [Language Wiki Website](https://github.com/bess-days/language-wiki) (APIs, SQL, Web scraping)
+* [Portfolio Website](https://sgreenspun.com) (HTML, CSS)
+
+
 Talks
 ======
   <ul>{% for post in site.talks reversed %}
@@ -80,9 +83,15 @@ Talks
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
-NLP Projects
-* Linguistic Analysis and Machine Learning of mental health texts
-* [Authorship Class Competition](https://github.com/bess-days/authorship-class-competition) - used transformers to predict whether two texts were by the same author
+Education
+======
+## University of Arizona 2024-2026
+* MS Human Language Technology: A program in computational linguistics and Natural Language Processing where I learned about AI and advanced techniques for machine learning and text analysis.
+
+## University of Arizona 2020-2024
+* BA Linguistics with a minor in Foreign Languages: I focused on language technology and computer science, while taking American Sign Language, French, and Russian.
+
+
 Service and leadership
 ======
 * Heads a team of dozens of members from all over the world on an online gaming community with hundreds of players, teaching them skills like JSON, Git, and creative writing to create fun quests for our game.
