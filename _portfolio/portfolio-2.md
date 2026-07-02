@@ -30,7 +30,7 @@ collection: portfolio
   </tr>
   <tr>
     <th><b>Code Repository URL</b></th>
-    <td>https://github.com/bess-days/authorship-class-competition</td>
+    <td>[Link](https://github.com/bess-days/authorship-class-competition)</td>
   </tr>
 </tbody>
 </table>
@@ -106,12 +106,12 @@ My approach was to use a BERT-based text classifier to classify the texts.
 
 | **Metric**                 | **Baseline** | **New Model** | **Delta (New − Base)** |
 | -------------------------- | ------------ | ------------- | ---------------------- |
-| **Accuracy**               | 0.781        | 0.844         | **+0.064**             |
-| **Precision**              | 0.500        | 0.875         | **+0.375**             |
-| **Recall**                 | 0.085        | 0.378         | **+0.293**             |
-| **F1 Score**               | 0.146        | 0.520         | **+0.374**             |
-| **AUC ROC**                | —            | 0.727         | —                      |
-| **Average Precision (AP)** | —            | 0.600         | —                      |
+| **Accuracy**               | 78%     | 84%         | **+0.064**             |
+| **Precision**              | 50%        | 88%         | **+0.375**             |
+| **Recall**                 | 9%        | 37%         | **+0.293**             |
+| **F1 Score**               | 15%       | 52%         | **+0.374**             |
+| **AUC ROC**                | —            | 72%        | —                      |
+| **Average Precision (AP)** | —            |60%         | —                      |
 
 First, I set up a base model that used a similarity score and a threshold to predict the label by turning each text into a TF-IDF vector. For this, I used the training data later used for the model.
 
