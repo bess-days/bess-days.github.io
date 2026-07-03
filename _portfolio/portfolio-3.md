@@ -4,7 +4,7 @@ excerpt: "Transformer-based Text Classification <br/><img src='/images/mh.jpg'>"
 collection: portfolio
 ---
 # Mental Health Natural Language Processing  
-Github Repo: https://github.com/bess-days/mental-health-analysis
+[Github Repo](https://github.com/bess-days/mental-health-analysis)
 
 One in five people in the United States experiences mental illness. Recently, more individuals have openly discussed the effect of mental illness on their lives. Many organizations now collect public posts from people about mental health conditions. Sentiment Analysis for Mental Health is a public database containing tweets from users self-identifying with a particular condition or none. Each entry contains a unique ID, tweet, and the writer's condition. Categories include prominent conditions—Depression, Suicidal, Anxiety, Stress, Bipolar, and Personality Disorder—as well as a control category, Normal. The dataset combines eight separate Kaggle datasets with raw text.
 

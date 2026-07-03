@@ -106,10 +106,10 @@ My approach was to use a BERT-based text classifier to classify the texts.
 
 | **Metric**                 | **Baseline** | **New Model** | **Delta (New − Base)** |
 | -------------------------- | ------------ | ------------- | ---------------------- |
-| **Accuracy**               | 78%     | 84%         | **+0.064**             |
-| **Precision**              | 50%        | 88%         | **+0.375**             |
-| **Recall**                 | 9%        | 37%         | **+0.293**             |
-| **F1 Score**               | 15%       | 52%         | **+0.374**             |
+| **Accuracy**               | 78%     | 84%         | **+6%**             |
+| **Precision**              | 50%        | 88%         | **+30.8%**             |
+| **Recall**                 | 9%        | 37%         | **+28%**             |
+| **F1 Score**               | 15%       | 52%         | **+37%**             |
 | **AUC ROC**                | —            | 72%        | —                      |
 | **Average Precision (AP)** | —            |60%         | —                      |
 
@@ -135,12 +135,12 @@ All that said, the delta shows there is a 35% average improvement in Precision, 
 
 | **Metric**        | **Value** |
 |-------------------|-----------|
-| Eval Accuracy     | 0.8509    |
-| Eval Precision    | 0.7917    |
-| Eval Recall      | 0.5000    |
-| Eval F1           | 0.6129    |
-| Eval AUC ROC      | 0.7668    |
-| Eval AP       | 0.6793    |
+| Eval Accuracy     | 85%    |
+| Eval Precision    | 79%    |
+| Eval Recall      | 50%    |
+| Eval F1           | 61%    |
+| Eval AUC ROC      | 77%    |
+| Eval AP       | 68%   |
 
 This trend of high accuracy, high precision, and low recall continues when evaluating the model on test data (separate from the validation and training data). The F1 score is higher because precision and recall are more balanced. This suggests it did a better job of identifying more true positives rather than categorizing them as negative (though only with 50% recall, which is still bad). This remains the main type of error. The higher, but similar, accuracy supports the idea that the datasets were relatively similar (as shown in the EDA).
 
