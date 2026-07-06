@@ -9,10 +9,9 @@ collection: portfolio
 The Coeur d’Alene (CdA) tribe lost its last fluent speaker in 2018 and has been working with the University of Arizona to revitalize the language. I joined the team three years ago, first focusing on linguistics and research, then leading my own OCR team.
 
 ## 🔎 What is Optical Character Recognition (OCR)
-
 OCR is a technology that converts scanned documents, PDFs, or images into machine-readable, editable, and searchable text. By building an OCR model for Indigenous languages, we make these preserved documents accessible and searchable, supporting language teaching, learning, and revitalization.
 
-Most OCR models are trained on widely spoken languages. Popular options include Tesseract, TrOCR, and Google Vision. Tesseract produced the best results and supports over 100 languages, including some Indigenous languages, but not CdA.
+Most OCR models are trained on widely spoken languages. Popular options include Tesseract, TrOCR, and Google Vision. 
 
 
 ## Models
@@ -22,21 +21,19 @@ Most OCR models are trained on widely spoken languages. Popular options include 
 
 #### What is Tesseract?
 
-[Tesseract](https://tesseractocr.org/) is an open-source OCR engine that uses a Long Short-Term Memory (LSTM) neural network, a type of Recurrent Neural Network. It accepts images (PNG or JPG) and outputs text using various methods. Tesseract currently supports over 100 languages, including some Indigenous languages.
+[Tesseract](https://tesseractocr.org/) is an open-source OCR engine that uses a Long Short-Term Memory (LSTM) neural network, a type of Recurrent Neural Network. It accepts images (PNG or JPG) and outputs text using various methods. Tesseract currently supports over 100 languages, including some Indigenous languages. But not CdA.
 
 #### What is Tesstrain?
 
-[Tesstrain](https://github.com/tesseract-ocr/tesstrain/tree/main) is the official training toolkit for creating and fine-tuning Tesseract OCR models. It enables training custom models for specific fonts, languages, or document styles not well covered by default Tesseract models.
+[Tesstrain](https://github.com/tesseract-ocr/tesstrain/tree/main) is the official training toolkit for creating and fine-tuning Tesseract OCR models. It allows training custom models for specific fonts, languages, or document styles not well covered by default Tesseract models.
 
-Training a model requires a large annotated dataset of ground truths: images of extracted lines from target documents paired with text transcriptions (ground-truth pairs.) This teaches the model what characters look like for you specific context.
-
-
+Training a model requires a large annotated dataset of ground truths: images of extracted lines from target documents paired with text transcriptions (ground-truth pairs). This teaches the model what characters look like for your specific context.
 
 ## 📈 Data
 
 ### 👩‍💻 Ground Truths || Total: 350 pairs
 
-For my [project](https://github.com/bess-days/colrc-ocr-model/tree/main), I used stories typed by Gladys Reichard in the Reichard Orthography, which differs from standard Latin characters.
+For my [project](https://github.com/bess-days/colrc-ocr-model/tree/main), I used stories typed on a typewriter by Gladys Reichard in the Reichard Orthography, which differs from typical Latin characters.
 
 These pages often exhibit significant photocopying noise and ink issues.
 
@@ -50,17 +47,17 @@ Some ground truths are even slanted and have other noise, like:
 
 Transcription: tcilɩdju’sᴇnts kuḿ tćaḿ äya’ʀ guĺɩnt’a’q́ʷsus. tätc
 
-The model was trained exclusively on typed text, meaning lines with handwritten annotations were excluded from training. Markings like underlines and corrections weren’t included in the training. Example of excluded lines:
+The model was trained exclusively on typed text, meaning lines with handwritten annotations, symbols, and underlines were excluded from training. Example of excluded lines:
 
 <img src='/images/handwitten.png'>
 
 <img src='/images/slash.png'>
 
-Some characters were very rare, like ᵓ and r̥, so character coverage was prioritized during data collection. A survey of the data showed that the Zipf Score, which measures character diversity, was 1.2, an acceptable range for this situation.
+Some characters were very rare, like ᵓ and r̥, so character coverage was prioritized during data collection. A survey of the data showed that the Zipf Score, which measures character diversity, was 1.2, an acceptable range for the available data.
 
 ### 🧪 Synthetic Data || Total: 1000 pairs
 
-As a one-person team, I found it challenging to collect enough ground-truth pairs with limited time. Generating synthetic data effectively supplemented the limited hand-annotated pairs. The Python packages and scripts used are available [here](https://github.com/bess-days/colrc-ocr-model/tree/main/data_scripts)
+Generating synthetic data effectively supplemented the limited hand-annotated pairs. The Python packages and scripts used are available [here](https://github.com/bess-days/colrc-ocr-model/tree/main/data_scripts)
 * [Markovify](https://github.com/jsvine/markovify): Using existing text, create novel words in the language using a Markov chain model that captures patterns in existing words and recombines them. [My Code](https://github.com/bess-days/colrc-ocr-model/blob/main/data_scripts/synthetic_gen.py#L29-L44)
     * Sample novel words include xʷä'ntc
         * xʷ occurs in 98/897 words in ground truths, ä’ occurs in 208/897, ntc occurs in 18/897 words, and ä’n occurs in 22/897 words
@@ -73,7 +70,7 @@ As a one-person team, I found it challenging to collect enough ground-truth pair
     * [Subtle Noise](https://augraphy.readthedocs.io/en/latest/doc/source/augmentations/subtlenoise.html): Emulates the imperfections in scanning solid colors due to subtle lighting differences
 
 * [Pillow](https://pypi.org/project/pillow/):  Using the Image functionality, I created the images [My Code](https://github.com/bess-days/colrc-ocr-model/blob/main/data_scripts/synthetic_gen.py#L49-L76)
-      * I selected the Duolis font because it accurately represents all the characters. While it does not exactly replicate the typewriter font, prioritizing a font that at least has some resemblence while capturing all the characters was the priority.
+      * I selected the Duolis font because it accurately represents all the characters. While it does not exactly replicate the typewriter font, prioritizing a font that at least resembles it while capturing all the characters was the priority.
 
 
 <img src='/images/sample_4.png'>
@@ -118,7 +115,7 @@ With Synthetic Data
 Interpretation:
 The most important metrics for evaluating a model are its performance on unseen data (lowest evaluation CER) and on hand-picked OCR samples. The model trained with synthetic data demonstrated better generalization in both areas.
 
-The following comparison illustrates the differences between Tesseract’s base Latin model (the start model), the finetuned model with and without synthetic data.
+The following comparison illustrates the differences between Tesseract’s base Latin model (the start model) and the fine-tuned model, with and without synthetic data.
 
 The example below demonstrates a ground truth with significant noise, including black spots and crooked text.
 
@@ -126,7 +123,7 @@ The example below demonstrates a ground truth with significant noise, including 
 
 The top line shows the ground truth, while the bottom displays the model’s prediction.
 
-Highlited in red on the top line are characters that were deleted or replaced in the model's prediction. The green characters on the bottom line are characters added in model's prediction that aren't in the ground-truth.
+Highlighted in red on the top line are characters that were deleted or replaced in the model’s prediction. The green characters on the bottom line are added by the model’s prediction and aren’t in the ground truth.
 
 
 Latin Start Model (51% CER):
@@ -139,7 +136,7 @@ With Synthetic Data (2% CER)
 <img src='/images/7_w.png'>
 
 Observed patterns:
-The model trained with synthetic data outperformed the model without synthetic data in recognizing sentence and word boundaries. Omitted punctuation occurred at least four times in tests with the model without synthetic data. Using a start model has drawbacks compared to training from scratch. A start model includes a large unicharset for the script (in this case, Latin). When fine-tuned, it keeps all Latin characters, but the likelihood of those characters appearing in the output is greatly reduced as it trains.
+The model trained with synthetic data outperformed the model without synthetic data in recognizing sentence and word boundaries. Omitted punctuation occurred at least four times in tests with the model without synthetic data. Using a start model has drawbacks compared to training from scratch. A start model includes a large unicharset for the script (in this case, Latin). When fine-tuned, it retains all Latin characters, but the likelihood of those characters appearing in the output decreases as training progresses.
 
 This is an example that has both foreign characters and a missing period.
 
@@ -155,7 +152,7 @@ With Synthetic data (2% CER)
 
 The reason for the inserted letters is unclear. Typically, such errors result from image noise, but in this case, there was no excessive noise. No consistent trend emerged: in about one-third of the test data, the model without synthetic data outperformed the model with synthetic data, although the latter performed better overall. 
 
-I theorized that the model trained on synthetic data, which included more lexically diverse words from the Markov model, would perform better with longer words. This was true in some cases, but in others, performance was similar. Both models generally performed well on language-specific characters such as ᵘ, ᵃ̈, and x̥ that the Latin model was not heavily trained on. 
+I theorized that the model trained on synthetic data, which included more lexically diverse words from the Markov model, would perform better with longer words. This was true in some cases, but in others, performance was similar (but not less). Both models generally performed well on language-specific characters such as ᵘ, ᵃ̈, and x̥ that the Latin model was not heavily trained on. 
 
 Recurring error patterns included:
 
@@ -171,22 +168,23 @@ Recurring error patterns included:
 
 I mentored a team of undergraduates through a similar process for different documents in CdA.
 
-The team members brought diverse skills and backgrounds, allowing me to teach new technical skills and developing new ones. At the project's outset, I was still learning the OCR pipeline. We used trial and error, and I ensured we had the necessary tools, including a repository and relevant literature.
+The team members brought diverse skills and backgrounds, allowing me to teach and develop new technical skills. At the project’s outset, I was still learning the OCR pipeline. We used trial and error, and I ensured we had the necessary tools, including a repository and relevant literature.
 
-This project on language workbooks in the Nicodemus orthography required less fine-tuning than my work with the Reichard documents. The character diversity closely resembled Latin a-z, and the high-quality source material made the model easier to train. The Latin model performed well but often misclassified ɫ as l or L, which led to our decision to train our own model. In the end, the results achieved reduced character error rates; however, the unique layouts of these source documents pose a problem we have yet to tackle.
+This project on language workbooks in the Nicodemus orthography required less fine-tuning than my work with the Reichard documents. The character diversity resembling Latin a-z and the high-quality source material made the model easier to train. The Latin model performed well but often misclassified ɫ as l or L, which led us to train our own model. In the end, the results achieved reduced character error rates; however, the unique layouts of these source documents pose a problem we have yet to tackle.
 
-The team is well-positioned to continue and I assured them I will remain reachable if they need any help.
+The team is well-positioned to continue, and I assured them I will remain reachable if they need any help.
 
 
 # Can you do this for your Indigenous language?
 
-This process can be done with any language, however, the task must be personalized for your language. Firstly, consider if your language's orthography similar to a script Tesseract is pre-trained on. If the answer is yes, this simplifies the training process. Training a custom model for a completely new script is possible but requires substantial training data and the creation of additional files, such as a unicharset.
+This process can be done with any language; however, the task must be personalized for your language. Firstly, consider if your language’s orthography is similar to a script Tesseract is pre-trained on. If the answer is yes, this simplifies the training process. Training a custom model for a completely new script is possible but requires substantial training data and the creation of additional files, such as a unicharset.
 
-Depending on the similarity to the start model, you may need more iterations. If your script closely resembles Latin start model, as the team’s orthography did, fewer iterations are needed to fine-tune the model. The team completed 10,000 iterations, whereas the Reichard model I produced seperately that was less similar to Latin took double that. 
-You'll also need at least a few hundred ground truths under varying conditions, and then many more synthetic data points, though again, this greatly depends on your language.
+Depending on how similar it is to the start model, you might need more iterations. If your script closely resembles the Latin start model, as the team’s orthography did, fewer iterations are needed to fine-tune the model. The team completed 10,000 iterations, whereas the Reichard model I produced separately, which was less similar to Latin, took twice that many.
+You’ll also need at least a few hundred ground-truth examples under varying conditions, and then many more synthetic data points, though, again, this greatly depends on your language.
 
+# Conclusion
 
-
+OCR is a relatively new technology that is constantly improving, whether through advances in layout parsing or the addition of new languages. Tesseract and, in turn, Tesstrain are handy tools for training custom models. Their default performance might be insufficient for low-resource languages, necessitating synthetic data or parameter adjustments. I went through 15+ model variations, each time tweaking a single factor, whether it was the Markov model clusters, augmentations of the synthetic data, or the number of iterations. Getting the best model takes trial and error. There is no one-size-fits-all model.
 
 
 
