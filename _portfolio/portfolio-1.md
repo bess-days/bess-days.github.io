@@ -142,12 +142,14 @@ This is an example that has both foreign characters and a missing period.
 
 <img src="/images/test_16.png">
 
-without Synthetic data (8% CER):
-<img src="/images/16_wo.png">
+Latin Start Model (62%)
+<img src="/images/16_b.png">
 
+Without Synthetic data (8% CER):
+<img src="/images/16_woo.png">
 
 With Synthetic data (2% CER)
-<img src="/images/16_w.png">
+<img src="/images/16_with.png">
 
 
 The reason for the inserted letters is unclear. Typically, such errors result from image noise, but in this case, there was no excessive noise. No consistent trend emerged: in about one-third of the test data, the model without synthetic data outperformed the model with synthetic data, although the latter performed better overall. 
