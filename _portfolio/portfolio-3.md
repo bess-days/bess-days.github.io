@@ -1,6 +1,6 @@
 ---
 title: "Mental Health NLP Analysis"
-excerpt: "Transformer-based Text Classification <br/><img src='/images/mh.jpg'>"
+excerpt: "Transformer-based Text Classification <br/><img src='/images/crop_mh.jpg'>"
 collection: portfolio
 ---
 # Mental Health Natural Language Processing  
