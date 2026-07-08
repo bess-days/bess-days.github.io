@@ -6,7 +6,7 @@ collection: portfolio
 # Mental Health Natural Language Processing  
 [Github Repo](https://github.com/bess-days/mental-health-analysis)
 
-One in five people in the United States experiences mental illness. Recently, more individuals have openly discussed the effects of mental illness on their lives. Many organizations now collect public posts about mental health conditions. [Sentiment Analysis for Mental Health](https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health) is a public database containing social media posts from users self-identifying with a particular condition or none. This specific database aggregates 8 Kaggle databases related to these conditions from Reddit, Twitter and more. To gather one specific condition, they looked at subredit thread titles or hashtags.
+One in five people in the United States experiences mental illness. Recently, more individuals have openly discussed the effects of mental illness on their lives. Many organizations now collect public posts about mental health conditions. [Sentiment Analysis for Mental Health](https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health) is a public database containing social media posts from users self-identifying with a particular condition or none. This database aggregates 8 Kaggle datasets related to these conditions from Reddit, Twitter, and other sources. To gather one specific condition, they looked at subreddit thread titles or annotations done by humans with diagnostic mental health experience.
 
 Each entry contains a unique ID, tweet, and the writer’s condition. Categories include prominent conditions—Depression, Suicidal, Anxiety, Stress, Bipolar, and Personality Disorder—as well as a control category, Normal.
 
