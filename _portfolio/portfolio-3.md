@@ -6,16 +6,18 @@ collection: portfolio
 # Mental Health Natural Language Processing  
 [Github Repo](https://github.com/bess-days/mental-health-analysis)
 
-One in five people in the United States experiences mental illness. Recently, more individuals have openly discussed the effects of mental illness on their lives. Many organizations now collect public posts about mental health conditions. Sentiment Analysis for Mental Health is a public database containing tweets from users self-identifying with a particular condition or none. Each entry contains a unique ID, tweet, and the writer’s condition. Categories include prominent conditions—Depression, Suicidal, Anxiety, Stress, Bipolar, and Personality Disorder—as well as a control category, Normal. The dataset combines eight separate Kaggle datasets with raw text.
+One in five people in the United States experiences mental illness. Recently, more individuals have openly discussed the effects of mental illness on their lives. Many organizations now collect public posts about mental health conditions. [Sentiment Analysis for Mental Health](https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health) is a public database containing social media posts from users self-identifying with a particular condition or none. This specific database aggregates other Kaggle databases related to these conditions from Reddit, Twitter and more. To gather one specific condition, they looked at subredit thread titles or hashtags.
+
+Each entry contains a unique ID, tweet, and the writer’s condition. Categories include prominent conditions—Depression, Suicidal, Anxiety, Stress, Bipolar, and Personality Disorder—as well as a control category, Normal. The dataset combines eight separate Kaggle datasets with raw text.
 
 ## Steps for cleaning and processing the dataframe  
-*(Refer to `group5_scriptfile_eda.ipynb`)*
+*(Refer to [eda.ipynb]https://github.com/bess-days/mental-health-analysis/blob/main/data/eda.ipynb`)*
 
 | Action | Remaining Rows (starts at 53,043) |
 |---|---|
-| Dropped duplicates and missing texts | 51,073 |
+| Dropped duplicates and missing texts (using Pandas dataframe manipulation) | 51,073 |
 | Removed non-English tweets (using Lingua) | 50,138 |
-| Cleaning the text and removing any texts where nothing remains (lower casing, removing URLs, hashtags, etc), removing stop words, and lemmatizing the words | 50,056 |
+| Cleaning the text and removing any texts where nothing remains (lower casing, removing URLs, hashtags, etc), removing stop words, and lemmatizing the words using SpaCy and NLTK | 50,056 |
 
 The final breakdown of conditions in the 50,056 rows:
 <img src="/images/conditions.png">
@@ -26,7 +28,7 @@ The final breakdown of conditions in the 50,056 rows:
 ## 1.1 Introduction
 
 The research question explores whether linguistic patterns are distinctive to specific groups. Specifically, are certain emotions, concerns, or concepts prevalent among individuals with mental health conditions? While each condition’s distinctiveness is intriguing, it may also offer practical advantages. For example, the dataset I used examines training chatbots to help doctors treat patients. If chatbots can detect emotions and identify condition-specific keywords, then customized treatment may become more achievable. 
-*(Refer to `group5_scriptfile_viz.ipynb`)*
+*(Refer to [viz.ipynb](https://github.com/bess-days/mental-health-analysis/blob/main/viz/viz.ipynb))*
 
 ## 1.2 Methodology
 
@@ -100,9 +102,11 @@ My next research question addresses a model’s capacity to predict an author’
 
 A model of this type could:
 
-* Identify Twitter users discussing mental health concerns.
-* Help algorithms surface condition-specific content.
+* Help social workers find individuals in need of early prevention
+* Serve as an educational resource so researches can better understand the experiences, challenges, and thought processes of individuals with a specific condition
 * Support chatbots and therapists in responding to users more effectively.
+
+That said, in my opinion, it should not be used in diagnosis or giving people labels. Rather serve as a tool for prevention and identifying individuals at risk.
 
 This project specifically compared the performance of multiple transformer models on the classification task.
 
@@ -119,9 +123,9 @@ Tweets were cleaned by:
 Two transformer models were evaluated:
 
 * DistilBERT
-* MentalRoBERTa (a transformer trained on mental health posts)
+* [MentalRoBERTa](https://huggingface.co/mental/mental-roberta-base) (a transformer trained on mental health posts)
 
-Based on documentation on the MentalRoBERTa Hugging Face page, the model’s training closely aligned with the goal of developing an automatic condition detector.
+Based on documentation on the MentalRoBERTa Hugging Face page, the model’s training closely aligned with the goal of developing an automatic condition detector. MentalRoBERTa is for non-clinical uses and was trained on anonymous post to the public, not social media posts and not collecting user profiles.
 
 I performed automatic tokenization and padded statements using the tokenizer specific to each model. To address class imbalance, I applied weighted training to balance class losses across groups. Training was accordingly weighted to compensate for class imbalance.
 
@@ -137,7 +141,7 @@ Shared Model Parameters
 ## 2.3 Results
 
 ### 2.3.1 MentalRoBERTa  
-*(Refer to `group5_scriptfile_mental.ipynb`)*
+*(Refer to [Mental_model.ipynb](https://github.com/bess-days/mental-health-analysis/blob/main/model/mental_model.ipynb))*
 
 The results of running MentalRoBERTa were promising. Specifically, the model stopped early around epoch 9. The final training loss was 0.26, and the observed accuracy was 78%.
 
@@ -158,7 +162,7 @@ The confusion matrix supported several initial hypotheses. Depression and Suicid
 The ROC curves indicate that the results are relatively good, with the curves for Anxiety, Bipolar, Personality Disorder, and Stress close to 1 (AUC of .97-.99). This suggests that the model generally performs well at differentiating between the classes. However, Suicidal and Depression both have an AUC of .91, which is expected because those two conditions overlap.
 
 ### 2.3.2 Distill-Bert  
-*(Refer to `group5_scriptfile_distil.ipynb`)*
+*(Refer to [distil.ipynb](https://github.com/bess-days/mental-health-analysis/blob/main/model/distil.ipynb))*
 
 I will briefly discuss DistilBERT, as the main goal is to compare the performance of a base model with that of a mental health-specific pre-trained model.
 
@@ -167,30 +171,17 @@ Using identical parameters and data, I reran the model with DistilBertUncased as
 
 ## 2.4 Conclusion
 
-MentalRoBERTa slightly outperformed DistilBERT across most evaluation metrics. The largest improvements appeared in:
+MentalRoBERTa outperformed DistilBERT across most evaluation metrics.  
 
-* Bipolar recall, reducing false negatives
-* Personality Disorder classification
-* Stress classification
+<img src="/images/table.png">
 
-Although both models used class-balanced weights, DistilBERT required more domain-specific information to make strong predictions for minority conditions.
+Table 2.6 Comparison of DistilBERT and MentalRoBERTa - the cells marked in green are the highest scores between the two models
 
-| Model         | Macro F1 | Weighted F1 | Accuracy |
-| ------------- | -------- | ----------- | -------- |
-| DistilBERT    | 0.80     | 0.79        | 78%     |
-| MentalRoBERTa | 0.82     | 0.79        | 79%     |
-
+Key Takeaways
+- Recall on Bipolar disorder meaning the model trained on Mental RoBerta produced fewer false negatives, which is important as missing a diagnosis can be critical. DistilBERT seems to only identify obvious Bipolar related text.
+- Mental RoBERTa performed better in all metrics for the data's minority classes Personality Disorder (1.8% of data) and Stress (4.6% of data). This proves that its domain-specific training helps it identify more specific/minor patterns more accurately without missing users.
+- While DistilBERT has slighlty higher precision that Mental RoBERTa in the Suicidal category, Mental RoBERTa is better at recognizing nuanced references to suicide. The latter model raises a few more false alarms (lower precision), but it catches more people in crisis (higher recall). This is critical for intervention.
+- There was no difference in performance between the F1 in Depression and Anxiety, and similar performance on other metrics. As the most prevelant conditions, not just in this dataset, but in general, means Depression and Anxiety related language would be covered significantly by DistilBERT's training data.
 
 The findings support the hypothesis that a domain-specific pre-trained transformer performs better than a broader general-purpose model for mental health classification tasks.
 
-
-| Class | DistilBERT Precision | DistilBERT Recall | DistilBERT F1 | MentalRoBERTa Precision | MentalRoBERTa Recall | MentalRoBERTa F1 |
-|---|---|---|---|---|---|---|
-| Anxiety | .86 | .91 | .88 | .87 | .90 | .88 |
-| Bipolar | .88 | .79 | .83 | .87 | .85 | .86 |
-| Depression | .81 | .75 | .78 | .83 | .73 | .78 |
-| Personality Disorder | .77 | .69 | .73 | .82 | .71 | .76 |
-| Stress | .81 | .82 | .82 | .86 | .86 | .86 |
-| Suicidal | .71 | .79 | .75 | .70 | .82 | .76 |
-
-Table 2.6 Comparison of DistilBERT and MentalRoBERTa - the cells marked in green are the highest scores between the two models
