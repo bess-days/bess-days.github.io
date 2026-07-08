@@ -6,12 +6,12 @@ collection: portfolio
 # Mental Health Natural Language Processing  
 [Github Repo](https://github.com/bess-days/mental-health-analysis)
 
-One in five people in the United States experiences mental illness. Recently, more individuals have openly discussed the effects of mental illness on their lives. Many organizations now collect public posts about mental health conditions. [Sentiment Analysis for Mental Health](https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health) is a public database containing social media posts from users self-identifying with a particular condition or none. This specific database aggregates other Kaggle databases related to these conditions from Reddit, Twitter and more. To gather one specific condition, they looked at subredit thread titles or hashtags.
+One in five people in the United States experiences mental illness. Recently, more individuals have openly discussed the effects of mental illness on their lives. Many organizations now collect public posts about mental health conditions. [Sentiment Analysis for Mental Health](https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health) is a public database containing social media posts from users self-identifying with a particular condition or none. This specific database aggregates 8 Kaggle databases related to these conditions from Reddit, Twitter and more. To gather one specific condition, they looked at subredit thread titles or hashtags.
 
-Each entry contains a unique ID, tweet, and the writer’s condition. Categories include prominent conditions—Depression, Suicidal, Anxiety, Stress, Bipolar, and Personality Disorder—as well as a control category, Normal. The dataset combines eight separate Kaggle datasets with raw text.
+Each entry contains a unique ID, tweet, and the writer’s condition. Categories include prominent conditions—Depression, Suicidal, Anxiety, Stress, Bipolar, and Personality Disorder—as well as a control category, Normal.
 
 ## Steps for cleaning and processing the dataframe  
-*(Refer to [eda.ipynb]https://github.com/bess-days/mental-health-analysis/blob/main/data/eda.ipynb`)*
+*(Refer to [eda.ipynb](https://github.com/bess-days/mental-health-analysis/blob/main/data/eda.ipynb))*
 
 | Action | Remaining Rows (starts at 53,043) |
 |---|---|
@@ -100,7 +100,7 @@ To summarize:
 
 My next research question addresses a model’s capacity to predict an author’s condition from a tweet. While there is literature concerning model training for depression detection, fewer studies compare multiple mental health conditions.
 
-A model of this type could:
+A model that can recognize linguistic patterns unique to conditions could:
 
 * Help social workers find individuals in need of early prevention
 * Serve as an educational resource so researches can better understand the experiences, challenges, and thought processes of individuals with a specific condition
