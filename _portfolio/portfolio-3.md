@@ -68,7 +68,7 @@ When someone is suicidal, they often discuss life and death, as well as aspirati
 
 ### Figure 1.4 Stress WordCloud
 
-The stress word cloud features many situational words, with ‘work,’ ‘job,’ ‘study,’ ‘pay,’ and ‘home’ appearing frequently. These routine subjects are common triggers for people experiencing stress. While stress and anxiety are related, anxiety words concern the body and life-or-death issues, while stress words relate to uncontrollable situations.
+The stress word cloud features many situational words, with ‘work,’ ‘job,’ ‘study,’ ‘pay,’ and ‘home’ appearing frequently. These routine subjects are common triggers for people experiencing stress. While stress and anxiety are related, anxiety words concern the body and life-or-death issues, while stress words relate to uncontrollable situations. 'PTSD' and 'flashback' are mentioned which is interesting, most likely because PTSD doesn't correlate as much with other conditions, it was labled as stress by datacollectors.
 
 <img src="/images/bipolar.png">
 
