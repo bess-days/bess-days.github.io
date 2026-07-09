@@ -21,7 +21,7 @@ Most OCR models are trained on widely spoken languages. Popular options include 
 
 #### What is Tesseract?
 
-[Tesseract](https://tesseractocr.org/) is an open-source OCR engine that uses a Long Short-Term Memory (LSTM) neural network, a type of Recurrent Neural Network. It accepts images (PNG or JPG) and outputs text using various methods. Tesseract currently supports over 100 languages, including some Indigenous languages. But not CdA.
+[Tesseract](https://tesseractocr.org/) is an open-source OCR engine that uses a Long Short-Term Memory (LSTM) neural network, a type of Recurrent Neural Network. It accepts images (PNG or JPG) and outputs text using various methods. Tesseract currently supports over 100 languages, including some Indigenous languages, but not CdA.
 
 #### What is Tesstrain?
 
