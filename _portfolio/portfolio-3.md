@@ -6,9 +6,9 @@ collection: portfolio
 # Mental Health Natural Language Processing  
 [Github Repo](https://github.com/bess-days/mental-health-analysis)
 
-One in five people in the United States experiences mental illness. Recently, more individuals have openly discussed the effects of mental illness on their lives. Many organizations now collect public posts about mental health conditions. [Sentiment Analysis for Mental Health](https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health) is a public database containing social media posts from users self-identifying with a particular condition or none. This database aggregates 8 Kaggle datasets related to these conditions from Reddit, Twitter, and other sources. To gather one specific condition, they looked at subreddit thread titles or annotations done by humans with diagnostic mental health experience.
+One in five people in the United States experiences mental illness. Recently, more individuals have openly discussed the affects of mental illness on their lives. Many organizations now collect public posts about mental health conditions. [Sentiment Analysis for Mental Health](https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health) is a public database containing social media posts from users self-identifying with a particular condition or none at all. This database aggregates 8 Kaggle datasets related to these conditions from Reddit, Twitter, and other sources. To gather one specific condition, they looked at subreddit thread titles or annotations done by humans with diagnostic mental health experience.
 
-Each entry contains a unique ID, tweet, and the writer’s condition. Categories include prominent conditions—`Depression, Suicidal, Anxiety, Stress, Bipolar, and Personality Disorder`—as well as a control category, Normal.
+Each entry contains a unique ID, post, and the writer’s condition. Categories include prominent conditions—`Depression`, `Suicidal`, `Anxiety`, `Stress`, `Bipolar`, and `Personality Disorder`—as well as a control category, Normal.
 
 ## Steps for cleaning and processing the dataframe  
 *(Refer to [eda.ipynb](https://github.com/bess-days/mental-health-analysis/blob/main/data/eda.ipynb))*
@@ -16,7 +16,7 @@ Each entry contains a unique ID, tweet, and the writer’s condition. Categories
 | Action | Remaining Rows (starts at 53,043) |
 |---|---|
 | Dropped duplicates and missing texts (using Pandas dataframe manipulation) | 51,073 |
-| Removed non-English tweets (using Lingua) | 50,138 |
+| Removed non-English posts (using Lingua) | 50,138 |
 | Cleaning the text and removing any texts where nothing remains (lower casing, removing URLs, hashtags, etc), removing stop words, and lemmatizing the words using SpaCy and NLTK | 50,056 |
 
 The final breakdown of conditions in the 50,056 rows:
@@ -35,7 +35,7 @@ The research question explores whether linguistic patterns are distinctive to sp
 After following the preprocessing steps above, two methods were used:
 
 1. A **TF-IDF** vectorizer transformed the text and identified terms that were frequent in a specific document but not across others. The goal was to highlight words associated with a given condition, which could help train chatbots to identify it.
-2. A **WordCloud** visualized the most common words with more than three letters that appeared in more than five tweets. Weights and frequencies were based on each word’s average frequency compared with its mean across all documents.
+2. A **WordCloud** visualized the most common words with more than three letters that appeared in more than five posts. Weights and frequencies were based on each word’s average frequency compared with its mean across all documents.
 
 Condition-specific words (e.g., bipolar, depression) and the Normal category were removed from the dataframe before analysis.
 
@@ -61,7 +61,7 @@ People with depression focus on their emotions, using words like ‘feel’, ‘
 
 ### Figure 1.3 Suicide WordCloud
 
-When someone is suicidal, they often discuss life and death, as well as aspirations they believe are unattainable. Common keywords in these tweets include ‘kill,’ ‘die,’ ‘end,’ and some expletives.
+When someone is suicidal, they often discuss life and death, as well as aspirations they believe are unattainable. Common keywords in these posts include ‘kill,’ ‘die,’ ‘end,’ and some expletives.
 
 <img src="/images/stress.png">
 
@@ -98,7 +98,7 @@ To summarize:
 
 ## 2.1 Introduction
 
-My next research question addresses a model’s capacity to predict an author’s condition from a tweet. While there is literature concerning model training for depression detection, fewer studies compare multiple mental health conditions.
+My next research question addresses a model’s capacity to predict an author’s condition from a post. While there is literature concerning model training for depression detection, fewer studies compare multiple mental health conditions.
 
 A model that can recognize linguistic patterns unique to conditions could:
 
@@ -112,9 +112,9 @@ This project specifically compared the performance of multiple transformer model
 
 ## 2.2 Methodology
 
-The Normal category was removed because it was the majority class, and the goal was to identify which condition each tweet belonged to. In practice and for use cases like identifying those in general with mental health conditions for prevention and risk management, a model trained on identifying the presense of any codition would be more efficient. 
+The Normal category was removed because it was the majority class, and the goal was to identify which condition each post belonged to. In practice and for use cases like identifying those in general with mental health conditions for prevention and risk management, a model trained on identifying the presense of any codition would be more efficient. 
 
-Tweets were cleaned by:
+posts were cleaned by:
 
 * Removing links, hashtags, and punctuation
 * Converting text to lowercase
@@ -154,7 +154,7 @@ This result is consistent with the macro F1-score calculated from the classifica
 <img src="/images/confusion.png">
 ### Figure 2.2 Confusion Matrix for MentalRoBERTa 
 
-The confusion matrix supported several initial hypotheses. `Depression` and `Suicidal` tweets were the most frequently confused categories, while `Stress` was occasionally mislabeled as `Anxiety`. `Personality Disorder`, being a minority class, also produced lower F1-scores and was more difficult to evaluate accurately.
+The confusion matrix supported several initial hypotheses. `Depression` and `Suicidal` posts were the most frequently confused categories, while `Stress` was occasionally mislabeled as `Anxiety`. `Personality Disorder`, being a minority class, also produced lower F1-scores and was more difficult to evaluate accurately.
 
 <img src="/images/roc.png">
 ### Figure 2.3 ROC curves for MentalRoBERTa 
