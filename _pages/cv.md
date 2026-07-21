@@ -64,7 +64,6 @@ Awards
 
 
 NLP Projects
-
 =====
 * [Linguistic Analysis and Machine Learning of mental health texts](https://bess-days.github.io/portfolio/portfolio-3/) (Transformers, SpaCy and text processing)
 * [Optical Character Recognition Project](https://bess-days.github.io/portfolio/portfolio-1/) (Neural Networks, Data gemeration)

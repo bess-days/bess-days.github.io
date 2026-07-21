@@ -64,13 +64,13 @@ Generating synthetic data effectively supplemented the limited hand-annotated pa
     * The words used in all synthetic data are a combination of ground truth words and 1,000 synthetic words.
 
 * [Augraphy](https://github.com/sparkfish/augraphy): Applies image and text augmentations to best approximate the appearance of the ground truths. [My Code](https://github.com/bess-days/colrc-ocr-model/blob/main/data_scripts/synthetic_gen.py#L77-L100)
-    * [Low Random Inklines](https://augraphy.readthedocs.io/en/latest/doc/source/augmentations/lowinkrandomlines.html): Adds ink lines randomly through the image
+    * [Low Ink Random Lines](https://augraphy.readthedocs.io/en/latest/doc/source/augmentations/lowinkrandomlines.html): Adds ink lines randomly through the image
     * [Inkbleed](https://augraphy.readthedocs.io/en/latest/doc/source/augmentations/inkbleed.html): Captures all edges (i.e., letters) in the image and adds a slight blur.
     * [Letterpress](https://augraphy.readthedocs.io/en/latest/doc/source/augmentations/letterpress.html):  Mimics uneven ink dispersion on the image
     * [Subtle Noise](https://augraphy.readthedocs.io/en/latest/doc/source/augmentations/subtlenoise.html): Emulates the imperfections in scanning solid colors due to subtle lighting differences
 
 * [Pillow](https://pypi.org/project/pillow/):  Using the Image functionality, I created the images [My Code](https://github.com/bess-days/colrc-ocr-model/blob/main/data_scripts/synthetic_gen.py#L49-L76)
-      * I selected the Duolis font because it accurately represents all the characters. While it does not exactly replicate the typewriter font, prioritizing a font that at least resembles it while capturing all the characters was the priority.
+    * I selected the Duolis font because it accurately represents all the characters. While it does not exactly replicate the typewriter font, prioritizing a font that at least resembles it while capturing all the characters was the priority.
 
 
 <img src='/images/sample_4.png'>
