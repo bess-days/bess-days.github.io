@@ -68,7 +68,7 @@ When someone is suicidal, they often discuss life and death, as well as aspirati
 
 ### Figure 1.4 Stress WordCloud
 
-The stress word cloud features many situational words, with ‘work,’ ‘job,’ ‘study,’ ‘pay,’ and ‘home’ appearing frequently. These routine subjects are common triggers for people experiencing stress. While stress and anxiety are related, anxiety words concern the body and life-or-death issues, while stress words relate to uncontrollable situations. 'PTSD' and 'flashback' are mentioned which is interesting; most likely because PTSD doesn't correlate as much with other conditions, it was labeled as stress by data collectors.
+The stress word cloud features many situational words, with ‘work,’ ‘job,’ ‘study,’ ‘pay,’ and ‘home’ appearing frequently. These routine subjects are common triggers for people experiencing stress. While stress and anxiety are related, anxiety words concern the body and life-or-death issues, and stress words relate to uncontrollable situations. 'PTSD' and 'flashback' are mentioned which is interesting; most likely because PTSD doesn't correlate as much with other conditions, it was labeled as stress by data collectors.
 
 <img src="/images/bipolar.png">
 
@@ -86,7 +86,7 @@ Personality disorders are defined by a person exhibiting unnatural patterns and 
 
 ## 1.4 Conclusion
 
-The results provided key insights into what distinguishes each mental health condition. One possible issue is the `Depression` TF-IDF. Because `Depression` is featured so prominently in the dataset, I wondered if that affected the TF-IDF - indeed, it did. Upon further testing, words like ‘feel’ and ‘like’ are among the most common across all conditions, but because of the class imbalance, the inverse often portrays these words as uniquely associated with `Depression`.
+The results provided key insights into what distinguishes each mental health condition. Because TF-IDF scores are heavily dictated by word frequency, the features that uniquely define the majority class appear far more often in the text. This was the case with ⁠ `Depression` ⁠as further testing revealed words like ‘feel’ and ‘like’ are among the most common across all conditions. That is a flaw in using TF-IDF with labels.
 To summarize: 
 * `Anxiety` was linked with health concerns.
 * `Depression` focused on strong emotions.
@@ -108,7 +108,7 @@ A model that can recognize linguistic patterns unique to conditions could:
 
 That said, in my opinion, it should not be used in diagnosis, even if it's purpose is to label conditions. Another reason not to use this model for diagnosis is people could have multiple conditions and this model was not built with multiple ranked output.
 
-This project specifically compared the performance of multiple transformer models on the classification task.
+This primary focus of this project was to compare the performance of a broader transformer model to a pre-trained model for mental health.
 
 ## 2.2 Methodology
 
@@ -125,7 +125,7 @@ Two transformer models were evaluated:
 * DistilBERT
 * [MentalRoBERTa](https://huggingface.co/mental/mental-roberta-base) (a transformer trained on mental health posts)
 
-Based on documentation on the MentalRoBERTa Hugging Face page, the model’s training closely aligned with the goal of developing an automatic condition detector. MentalRoBERTa is for non-clinical uses and was trained on anonymous post to the public, not social media posts and not collecting user profiles.
+Based on documentation on the MentalRoBERTa Hugging Face page, the model’s training closely aligned with the goal of developing an automatic condition detector. MentalRoBERTa is for non-clinical uses and was trained on anonymous posts to the public, not social media posts and not collecting user profiles.
 
 I performed automatic tokenization and padded statements using the tokenizer specific to each model. To address class imbalance, I applied weighted training to balance class losses across groups. Training was accordingly weighted to compensate for class imbalance.
 
@@ -161,12 +161,12 @@ The confusion matrix supported several initial hypotheses. `Depression` and `Sui
 
 The ROC curves indicate that the results are relatively good, with the curves for `Anxiety`, `Bipolar`, `Personality Disorder`, and `Stress` close to 1 (AUC of .97-.99). This suggests that the model generally performs well at differentiating between the classes. However, `Suicidal` and `Depression` both have an AUC of .91, which is expected because those two conditions overlap.
 
-### 2.3.2 Distill-Bert  
+### 2.3.2 DistilBERT
 *(Refer to [distil.ipynb](https://github.com/bess-days/mental-health-analysis/blob/main/model/distil.ipynb))*
 
-I will briefly discuss DistilBERT, as the main goal is to compare the performance of a base model with that of a mental health-specific pre-trained model.
+DistilBERT served as my base model to compare with a mental health-specific pre-trained model.
 
-Using identical parameters and data, I reran the model with DistilBertUncased as both the tokenizer and the pre-trained model. The results were comparable, with most metrics trailing the mental health pre-trained model by 1-5 points. The average Macro-F1 was 80%, which is at the lower end of what is considered very good for such models. The model struggles to accurately recognize and evaluate minority groups.
+Using identical parameters and data, I reran the model with DistilBERT as both the tokenizer and the pre-trained model. The results were comparable, with most metrics trailing the mental health pre-trained model by 1-5 points. The average Macro-F1 was 80%, which is at the lower end of what is considered very good for such models. The model struggles to accurately recognize and evaluate minority groups.
 
 
 ## 2.4 Conclusion
