@@ -6,9 +6,10 @@ collection: portfolio
 # Mental Health Natural Language Processing  
 [Github Repo](https://github.com/bess-days/mental-health-analysis)
 
-One in five people in the United States experiences mental illness. Recently, more individuals have openly discussed the affects of mental illness on their lives. Many organizations now collect public posts about mental health conditions. [Sentiment Analysis for Mental Health](https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health) is a public database containing social media posts from users self-identifying with a particular condition or none at all. This database aggregates 8 Kaggle datasets related to these conditions from Reddit, Twitter, and other sources. To gather one specific condition, they looked at subreddit thread titles or annotations done by humans with diagnostic mental health experience.
+One in five people in the United States experiences mental illness. Recently, more individuals have openly discussed the affects of mental illness on their lives. Many organizations now collect public posts about mental health conditions. [Sentiment Analysis for Mental Health](https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health)is a public database containing social media posts from users self-identifying with a particular condition or have none at all. This database aggregates 8 Kaggle datasets related to these conditions from Reddit, Twitter, and other sources. To gather one specific condition, they looked at subreddit thread titles or annotations done by humans with diagnostic mental health experience.
 
-Each entry contains a unique ID, post, and the writer’s condition. Categories include prominent conditions—`Depression`, `Suicidal`, `Anxiety`, `Stress`, `Bipolar`, and `Personality Disorder`—as well as a control category, Normal.
+
+Each entry contains a unique ID, post, and the writer’s condition. Categories include prominent conditions—`Depression`, `Suicidal`, `Anxiety`, `Stress`, `Bipolar`, and `Personality Disorder`—as well as a control category, `Normal`.
 
 ## Steps for cleaning and processing the dataframe  
 *(Refer to [eda.ipynb](https://github.com/bess-days/mental-health-analysis/blob/main/data/eda.ipynb))*
@@ -27,7 +28,7 @@ The final breakdown of conditions in the 50,056 rows:
 
 ## 1.1 Introduction
 
-The research question explores whether linguistic patterns are distinctive to specific groups. Specifically, are certain emotions, concerns, or concepts prevalent among individuals with mental health conditions? While each condition’s distinctiveness is intriguing, it may also offer practical advantages. For example, the dataset I used examines training chatbots to help doctors treat patients. If chatbots can detect emotions and identify condition-specific keywords, then customized treatment may become more achievable. 
+The research question explores whether linguistic patterns are distinctive to specific classes. Specifically, are certain emotions, concerns, or concepts prevalent among individuals with mental health conditions? While each condition’s distinctiveness is intriguing, it may also offer practical advantages. For example, the dataset I used examines training chatbots to help doctors treat patients. If chatbots can detect emotions and identify condition-specific keywords, then customized treatment may become more achievable.
 *(Refer to [viz.ipynb](https://github.com/bess-days/mental-health-analysis/blob/main/viz/viz.ipynb))*
 
 ## 1.2 Methodology
@@ -36,7 +37,6 @@ After following the preprocessing steps above, two methods were used:
 
 1. A **TF-IDF** vectorizer transformed the text and identified terms that were frequent in a specific document but not across others. The goal was to highlight words associated with a given condition, which could help train chatbots to identify it.
 2. A **WordCloud** visualized the most common words with more than three letters that appeared in more than five posts. Weights and frequencies were based on each word’s average frequency compared with its mean across all documents.
-
 Condition-specific words (e.g., bipolar, depression) and the Normal category were removed from the dataframe before analysis.
 
 ## 1.3 Data Results
@@ -47,7 +47,7 @@ Condition-specific words (e.g., bipolar, depression) and the Normal category wer
 
 ### Figure 1.1 Anxiety Wordcloud
 
-The `Anxiety` WordCloud includes words commonly associated with anxiety, such as 'worry', 'nervous', and 'restless'. Additionally, many words align with medical themes. Terms such as 'heart', 'doctor', and 'cancer' appear prominently, suggesting that medical concerns are frequently mentioned by individuals with anxiety in this dataset.
+The `Anxiety` WordCloud includes words commonly associated with anxiety, such as ‘worry’, ‘nervous’, and ‘restless’. Additionally, many words align with medical themes. Terms such as ‘heart’, ‘doctor’, and ‘cancer’ appear prominently, suggesting that medical concerns are frequently mentioned by individuals with anxiety in this dataset.
 
 
 <img src="/images/depression.png"> 
@@ -55,7 +55,7 @@ The `Anxiety` WordCloud includes words commonly associated with anxiety, such as
 
 ### Figure 1.2 Depression WordCloud
 
-People with depression focus on their emotions, using words like ‘feel’, ‘depress’, ‘hate’, ‘happy’, and ‘good’. This suggests they discuss emotions more than other groups do; specifically, they more frequently describe *feeling* x, y, z, rather than *being* x, y, z.
+People with depression focus on their emotions, using words like ‘feel’, ‘depress’, ‘hate’, ‘happy’, and ‘good’. This suggests they discuss emotions more than other classes do; specifically, they more frequently describe *feeling* x, y, z, rather than *being* x, y, z.
 
 <img src="/images/suicide.png">
 
@@ -68,7 +68,7 @@ When someone is suicidal, they often discuss life and death, as well as aspirati
 
 ### Figure 1.4 Stress WordCloud
 
-The stress word cloud features many situational words, with ‘work,’ ‘job,’ ‘study,’ ‘pay,’ and ‘home’ appearing frequently. These routine subjects are common triggers for people experiencing stress. While stress and anxiety are related, anxiety words concern the body and life-or-death issues, and stress words relate to uncontrollable situations. 'PTSD' and 'flashback' are mentioned which is interesting; most likely because PTSD doesn't correlate as much with other conditions, it was labeled as stress by data collectors.
+The stress word cloud features many situational words, with ‘work,’ ‘job,’ ‘study,’ ‘pay,’ and ‘home’ appearing frequently. These routine subjects are common triggers for people experiencing stress. While stress and anxiety are related, anxiety words concern the body and life-or-death issues, and stress words relate to uncontrollable situations. ‘PTSD’ and ‘flashback’ are mentioned, which is interesting; most likely because PTSD doesn’t correlate as much with other conditions, it was labeled as stress by data collectors.
 
 <img src="/images/bipolar.png">
 
@@ -86,8 +86,8 @@ Personality disorders are defined by a person exhibiting unnatural patterns and 
 
 ## 1.4 Conclusion
 
-The results provided key insights into what distinguishes each mental health condition. Because TF-IDF scores are heavily dictated by word frequency, the features that uniquely define the majority class appear far more often in the text. This was the case with ⁠ `Depression` ⁠as further testing revealed words like ‘feel’ and ‘like’ are among the most common across all conditions. That is a flaw in using TF-IDF with labels.
-To summarize: 
+The results provided key insights into what distinguishes each mental health condition. Because TF-IDF scores are heavily dictated by word frequency, the features that uniquely define the majority class appear far more often in the text. This was the case with `Depression` , as further testing revealed words like ‘feel’ and ‘like’ are among the most common across all conditions. That is a flaw in using TF-IDF with labels.
+To summarize:
 * `Anxiety` was linked with health concerns.
 * `Depression` focused on strong emotions.
 * `Suicidal` emphasized life-and-death language.
@@ -102,19 +102,19 @@ My next research question addresses a model’s capacity to predict an author’
 
 A model that can recognize linguistic patterns unique to conditions could:
 
-* Help social workers find individuals in need of early prevention
-* Serve as an educational resource so researchers can better understand the experiences, challenges, and thought processes of individuals with a specific condition
+* Help social workers find individuals in need of early intervention.
+* Serve as an educational resource to help researchers better understand the experiences, challenges, and thought processes of individuals with a specific condition.
 * Support chatbots in responding to users more effectively and providing resources.
 
-That said, in my opinion, it should not be used in diagnosis, even if it's purpose is to label conditions. Another reason not to use this model for diagnosis is people could have multiple conditions and this model was not built with multiple ranked output.
+In my opinion, it could be used as aid in diagnosis. Another reason not to use this model for diagnosis is that people can have multiple conditions, and this model was not designed to handle multiple ranked outputs.
 
-This primary focus of this project was to compare the performance of a broader transformer model to a pre-trained model for mental health.
+The primary focus of this project was to compare the performance of a broader transformer model to a pre-trained model for mental health.
 
 ## 2.2 Methodology
 
-The Normal category was removed because it was the majority class, and the goal was to identify which condition each post belonged to. In practice and for use cases like identifying those in general with mental health conditions for prevention and risk management, a model trained on identifying the presense of any codition would be more efficient. 
+The Normal category was removed because it was the majority class, and the goal was to identify which condition each post belonged to. In practice and for use cases like identifying those in general with mental health conditions for prevention and risk management, a model trained on identifying the presence of any condition would be more efficient.
 
-posts were cleaned by:
+Posts were cleaned by:
 
 * Removing links, hashtags, and punctuation
 * Converting text to lowercase
@@ -125,9 +125,10 @@ Two transformer models were evaluated:
 * DistilBERT
 * [MentalRoBERTa](https://huggingface.co/mental/mental-roberta-base) (a transformer trained on mental health posts)
 
-Based on documentation on the MentalRoBERTa Hugging Face page, the model’s training closely aligned with the goal of developing an automatic condition detector. MentalRoBERTa is for non-clinical uses and was trained on anonymous posts to the public, not social media posts and not collecting user profiles.
+Based on documentation on the MentalRoBERTa Hugging Face page, the model’s training was closely aligned with the development of an automatic mental health detector. MentalRoBERTa is for non-clinical uses and was trained on publicly available, anonymized posts, not on social media posts, and does not collect user profiles.
 
-I performed automatic tokenization and padded statements using the tokenizer specific to each model. To address class imbalance, I applied weighted training to balance class losses across groups. Training was accordingly weighted to compensate for class imbalance.
+
+I performed automatic tokenization and padded statements using the tokenizer specific to each model. To address class imbalance, I applied weighted training to balance class losses across classes. Training was accordingly weighted to compensate for class imbalance.
 
 Shared Model Parameters
 * Training epochs: 10
@@ -145,9 +146,12 @@ Shared Model Parameters
 
 The results of running MentalRoBERTa were promising. Specifically, the model stopped early around epoch 9. The final training loss was 0.26, and the observed accuracy was 78%.
 
+
 Therefore, emphasis was placed on the macro F1-score to account for class imbalance. Macro F1 considers both precision and recall, ensuring equal representation for all classes, including minority classes such as `Personality disorder`. There was no need to penalize the model for failing to fit one class.
 
+
 The highest macro F1-score achieved was 0.8213, within the 0.80-0.90 range, suggesting the model performs well.
+
 
 This result is consistent with the macro F1-score calculated from the classification report following predictions.
 
@@ -166,22 +170,24 @@ The ROC curves indicate that the results are relatively good, with the curves fo
 
 DistilBERT served as my base model to compare with a mental health-specific pre-trained model.
 
-Using identical parameters and data, I reran the model with DistilBERT as both the tokenizer and the pre-trained model. The results were comparable, with most metrics trailing the mental health pre-trained model by 1-5 points. The average Macro-F1 was 80%, which is at the lower end of what is considered very good for such models. The model struggles to accurately recognize and evaluate minority groups.
+
+Using identical parameters and data, I reran the model with DistilBERT as both the tokenizer and the pre-trained model. The results were comparable, with most metrics trailing the mental health pre-trained model by 1-5 points. The average Macro-F1 was 80%, which is at the lower end of what is considered very good for such models. The model struggles to accurately recognize and evaluate minority classes.
 
 
 ## 2.4 Conclusion
 
-MentalRoBERTa outperformed DistilBERT across most evaluation metrics.  
+MentalRoBERTa outperformed DistilBERT across most evaluation metrics.
 
 <img src="/images/table.png">
 
-Table 2.6 Comparison of DistilBERT and MentalRoBERTa - the cells marked in green are the highest scores between the two models
+Table 2.6 Comparison of DistilBERT and MentalRoBERTa - the cells marked in green are the highest scores between the two models.
 
 Key Takeaways
-- Recall on `Bipolar` disorder meaning the model trained on MentalRoBERTa  produced fewer false negatives, which is important as missing a diagnosis can be critical. DistilBERT seems to only identify obvious `Bipolar` related text.
-- MentalRoBERTa  performed better in all metrics for the data's minority classes `Personality Disorder` (1.8% of data) and `Stress` (4.6% of data). This proves that its domain-specific training helps it identify more specific/minor patterns more accurately without missing users.
-- While DistilBERT has slighlty higher precision that MentalRoBERTa  in the `Suicidal` category, MentalRoBERTa  is better at recognizing nuanced references to suicide. The latter model raises a few more false alarms (lower precision), but it catches more people in crisis (higher recall). This is critical for intervention.
-- There was no difference in performance between the F1 in `Depression` and `Anxiety`, and similar performance on other metrics. `Depression` and `Anxiety` are the most prevelant conditions, not just in this dataset, but in general, which means related language would be covered significantly by DistilBERT's training data.
+* The high recall on `Bipolar` disorder suggests the model trained on MentalRoBERTa produced fewer false negatives, which is important as missing a diagnosis can be critical. DistilBERT seems to identify only obvious Bipolar-related text.
+* MentalRoBERTa performed better on all metrics for the data’s minority classes: `Personality Disorder` (1.8% of the data) and `Stress` (4.6% of the data). This proves that its domain-specific training helps it identify more specific/minor patterns more accurately without missing users.
+* While DistilBERT has slightly higher precision than MentalRoBERTa in the `Suicidal` category, MentalRoBERTa is better at recognizing nuanced references to suicide. The latter model raises a few more false alarms (lower precision), but it catches more people in crisis (higher recall). This is critical for intervention.
+* There was no difference in performance between the F1 in `Depression` and `Anxiety`, and similar performance on other metrics. `Depression` and `Anxiety` are the most prevalent conditions, not just in this dataset, but in general, which means related language would be covered significantly by DistilBERT’s training data.
+
 
 The findings support the hypothesis that a domain-specific pre-trained transformer performs better than a broader general-purpose model for mental health classification tasks.
 
